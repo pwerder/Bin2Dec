@@ -8,7 +8,6 @@ $decimal = 0;
 $bin = array_reverse($arr);
 foreach ($bin as $key => $value) {
     # code...
-    echo $value . '*2^' . $key. "<br/>";
     $decimal += $value*(2**$key);
 }
 echo $decimal;
