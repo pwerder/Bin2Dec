@@ -1,20 +1,26 @@
 <?php
 
-$arr = str_split($_POST['binario']); 
+$binario = $_POST['binario'];
+$arr = str_split($binario);
 
-// n*2^7 + n*2^6 + n*2^5 + n*2^4 + n*2^3 + n*2^2 + n*2^1 + n*2^0
 
+if(empty($binario))
+{
+    echo "O campo não pode estar vazio";
+    return;
+}
 if(count($arr) > 8)
 {
     echo "O binario deve conter 8 digitos";
-    return 0;
+    return;
 }
 
 $decimal = 0;
 $bin = array_reverse($arr);
-foreach ($bin as $key => $value) 
+foreach ($bin as $key => $value)
 {
     $decimal += $value*(2**$key);
 }
 echo $decimal;
 
+return;
